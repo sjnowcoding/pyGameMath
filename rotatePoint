@@ -1,0 +1,54 @@
+
+import pygame, sys
+from pygame.locals import *
+import numpy as np
+
+pygame.init()
+screen=pygame.display.set_mode((600,400))
+WHITE=(255,255,255)
+BLACK=(0,0,0)
+
+FPS = pygame.time.Clock()
+size=screen.get_size()
+
+#screen 의 가로세로 중간점 구하기 
+hw, hh = (size[0]//2, size[1]//2)
+
+
+v = np.array([ [50],
+              [50]
+              ])
+
+
+aR=0.0
+while True:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    screen.fill(WHITE)
+
+    #기준선 그리기 
+    pygame.draw.line(screen,BLACK, (0,hh),(size[0],hh),1)
+    pygame.draw.line(screen,BLACK, (hw,0),(hw,size[1]),1)
+
+    
+
+    
+    m = np.array( [ [np.cos(aR), -np.sin(aR)],
+                [np.sin(aR), np.cos(aR)]
+                ])
+    
+    v = np.dot(m,v)
+    aR=0.1
+
+    pygame.draw.circle(screen,BLACK, (hw+v[0][0],hh-v[1][0]),10,0)
+    
+    pygame.display.update()
+    FPS.tick(24)
+
+
+
+
+
