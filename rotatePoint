@@ -1,4 +1,5 @@
 
+
 import pygame, sys
 from pygame.locals import *
 import numpy as np
@@ -19,8 +20,6 @@ v = np.array([ [50],
               [50]
               ])
 
-
-aR=0.0
 while True:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
@@ -35,18 +34,23 @@ while True:
 
     
 
-    
+    aR=0.1
     m = np.array( [ [np.cos(aR), -np.sin(aR)],
                 [np.sin(aR), np.cos(aR)]
                 ])
     
     v = np.dot(m,v)
-    aR=0.1
+
 
     pygame.draw.circle(screen,BLACK, (hw+v[0][0],hh-v[1][0]),10,0)
     
     pygame.display.update()
     FPS.tick(24)
+
+
+
+
+
 
 
 
