@@ -1,0 +1,15 @@
+import numpy as np
+from math import *
+#matplotlib 패키지 안의 pyplot 모듈 사용 
+import matplotlib.pyplot as plt
+
+x = [2, 8, 1024, 65536]
+
+y = np.log2(x)
+
+#점으로 표현하기 
+plt.plot(x,y,'o')
+plt.grid()
+
+plt.show()
+
