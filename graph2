@@ -1,0 +1,18 @@
+import numpy as np
+from math import *
+#matplotlib 패키지 안의 pyplot 모듈 사용 
+import matplotlib.pyplot as plt
+
+x = np.arange(0,101,10)
+
+y = [ -2*i+3  for i in x ]
+
+y = np.array(y) #리스트를 배열로 바꾸기
+
+#점으로 표현하기 
+plt.plot(x,y,'o')
+
+#격자추가하기 
+plt.grid()
+
+plt.show()
